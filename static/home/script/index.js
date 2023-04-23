@@ -168,7 +168,7 @@ function mobileProductDropdown() {
 mobileProductDropdown()
 
 
-const API_URL = 'http://127.0.0.1:8000';
+const API_URL = 'http://grtak.am';
 
 async function getCartItems(url) {
     const data = await fetch(url);
