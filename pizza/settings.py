@@ -32,11 +32,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = [
-    '209.38.225.86',
-    'http://grtak.am',
-    'https://grtak.am'
-]
+ALLOWED_HOSTS = ['*']
 
 CART_SESSION_ID = 'cart'
 
@@ -145,10 +141,4 @@ else:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
-}
+CSRF_TRUSTED_ORIGINS = ['https://*','http://*']
