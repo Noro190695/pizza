@@ -31,13 +31,18 @@ SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
+if DEBUG:
+    ALLOWED_HOSTS = [
+        '*'
+    ]
+else:
 
-ALLOWED_HOSTS = [
-    '209.38.225.86',
-    'grtak.am',
-    'http://grtak.am',
-    'https://grtak.am'
-]
+    ALLOWED_HOSTS = [
+        '209.38.225.86',
+        'grtak.am',
+        'http://grtak.am',
+        'https://grtak.am'
+    ]
 
 CART_SESSION_ID = 'cart'
 

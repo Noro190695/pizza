@@ -137,14 +137,13 @@ function openMobileMenu() {
     const burger = document.querySelector('.mobile-header__burger');
 
     burger.addEventListener('click', () => {
-
         const menu = document.querySelector('.mobile-header__menu_items');
         const close = menu.querySelector('.mobile-header__menu_items-close');
         burger.computedStyleMap.display = 'none'
         menu.classList.add('mobile-header__menu_items-active');
         close.addEventListener('click', () => {
             menu.classList.remove('mobile-header__menu_items-active');
-            burger.computedStyleMap.display = 'flex'
+            burger.style.display = 'flex'
         })
     })
 }
