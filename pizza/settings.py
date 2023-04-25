@@ -33,6 +33,8 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = [
+    '209.38.225.86',
+    'grtak.am',
     'http://grtak.am',
     'https://grtak.am'
 ]
