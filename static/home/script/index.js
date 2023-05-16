@@ -51,7 +51,7 @@ cartOpenClose();
 function hideCart() {
     cart.classList.remove('cart__open');
     const overlay = document.querySelector('.cart__overlay');
-    overlay.remove();
+    if (overlay) overlay.remove();
 }
 
 

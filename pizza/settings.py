@@ -38,7 +38,7 @@ if DEBUG:
 else:
 
     ALLOWED_HOSTS = [
-        '209.38.225.86',
+        '209.38.204.91',
         'grtak.am',
         'http://grtak.am',
         'https://grtak.am'
