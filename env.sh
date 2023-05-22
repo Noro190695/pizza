@@ -10,6 +10,7 @@ echo $DB_NAME
 export DB_USER="postgres"
 echo $DB_USER
 export DB_PORT="5432"
+
 echo $DB_PORT
 export DB_PASSWORD="1234"
 echo $DB_PASSWORD
