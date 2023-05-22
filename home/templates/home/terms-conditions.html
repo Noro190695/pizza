@@ -1,0 +1,446 @@
+{% extends 'base.html' %}
+{% load static tags %}
+{% block content %}
+    <div class="wrapper">
+        <div class="bg"></div>
+        <div class="cart">
+            <button class="cart__button">
+                <img src="/media/svg/cart.svg" alt=""/>
+            </button>
+            <div class="cart__content">
+                <div class="cart__content_header">
+                    <h2 class="title">Cart</h2>
+                    <button class="cart__close">
+                        <img src="/media/svg/close.svg" alt=""/>
+                    </button>
+                </div>
+                <ul class="cart__content_products"></ul>
+                <div class="cart__content_footer">
+                    <h2 class="cart__sum">10000amd</h2>
+                    <button class="cart__checkout">Checkout</button>
+                </div>
+            </div>
+        </div>
+        <a class="call" href="tel:+37433333333">
+            <img
+                    src="/media/svg/call.svg"
+                    alt="call"
+                    width="38px"
+                    height="38px"
+            />
+        </a>
+        <div class="desktop-content">
+            <header>
+                <div class="big__container">
+                    <div class="header__container">
+                        <a href="/" class="logo">
+                            <img src="/media/svg/logo.svg" alt="logo"/>
+                        </a>
+                        <nav class="header__menu">
+                            <ul class="header__menu_items">
+                                <li class="header__menu_item">
+                                    <div class="dropdown">
+                                        <p class="dropdown__title">
+                                            EN
+                                        </p>
+                                        <ul
+                                                class="dropdown__content"
+                                        >
+                                            <li
+                                                    class="dropdown__item"
+                                            >
+                                                <a
+                                                        href=""
+                                                        class="dropdown__link"
+                                                >ARM</a
+                                                >
+                                            </li>
+                                            <li
+                                                    class="dropdown__item"
+                                            >
+                                                <a
+                                                        href=""
+                                                        class="dropdown__link"
+                                                >EN</a
+                                                >
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="header__menu_item">
+                                    <div class="dropdown">
+                                        <p class="dropdown__title">
+                                            Menu
+                                        </p>
+                                        <ul
+                                                class="dropdown__content"
+                                        >
+                                            <li
+                                                    class="dropdown__item"
+                                            >
+                                                <a
+                                                        href=""
+                                                        class="dropdown__link"
+                                                >Pepperoni</a
+                                                >
+                                            </li>
+                                            <li
+                                                    class="dropdown__item"
+                                            >
+                                                <a
+                                                        href=""
+                                                        class="dropdown__link"
+                                                >Four Cheeses</a
+                                                >
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <section class="rules">
+                <div class="rules__container">
+                    <h1 class="rules__title">Terms & Conditions</h1>
+                    <h2 class="rules__subtitle">Thank you for choosing to order from our pizza shop. Please carefully
+                        read
+                        our terms and conditions before using our website and placing an order.</h2>
+                    <p class="rules__desc">1. Ordering: You may place your order through our website, over the phone or
+                        in
+                        person. By placing
+                        an order, you agree to pay the total amount due for your order.
+
+
+                    </p>
+                    <p class="rules__desc">
+                        2. Delivery: We offer delivery within a certain radius of our shop. Delivery times may vary
+                        based
+                        on traffic and other factors outside of our control. We do not offer refunds for late
+                        deliveries.
+                    </p>
+                    <p class="rules__desc">3. Payment: We accept cash and all major credit cards. Payment is due upon
+                        delivery or pick-up.</p>
+                    <p class="rules__desc">4. Changes and Cancellations: If you need to make changes to your order,
+                        please
+                        contact us as soon
+                        as possible. We cannot guarantee that we will be able to accommodate all changes. If you need to
+                        cancel your order, please contact us at least 1 hour before the scheduled delivery or pick-up
+                        time. If you cancel your order after this time, you may be charged a cancellation fee.</p>
+                    <p class="rules__desc">5. Menu and Prices: Our menu and prices are subject to change without notice.
+                        We
+                        strive to keep our
+                        website up to date with the latest menu and prices.</p>
+                    <p class="rules__desc">6. Food Allergies: Please inform us of any food allergies before placing your
+                        order. We cannot
+                        guarantee that our food is free from allergens.</p>
+                    <p class="rules__desc">7. Refunds and Returns: We do not offer refunds or returns for food that has
+                        been delivered or
+                        picked up.</p>
+                    <p class="rules__desc">8. Privacy Policy: We take your privacy seriously. Please review our privacy
+                        policy for information
+                        on how we collect and use your personal information.</p>
+                    <p class="rules__desc">9. Governing Law: These terms and conditions shall be governed by and
+                        construed
+                        in accordance with
+                        the laws of the state in which our shop is located.</p>
+                    <p class="rules__desc rules__desc_gap">10. By using our website and placing an order, you agree to
+                        be bound by these
+                        terms and conditions.
+                        If you do not agree to these terms and conditions, please do not use our website or place an
+                        order.</p>
+                </div>
+            </section>
+            <footer>
+                <div class="footer__info">
+                    <img
+                            class="footer__info_img"
+                            src="{{ home.logo.url }}"
+                            alt=""
+                    />
+                    <a class="footer__info_phone" href="tel:+37496981999">
+                        <svg
+                                width="38"
+                                height="38"
+                                viewBox="0 0 38 38"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                    d="M26.5936 38.0001C24.7696 37.9601 22.8475 37.4367 20.9941 36.6409C15.7584 34.3922 11.2984 31.0753 7.55924 26.7822C4.87701 23.703 2.6603 20.33 1.1823 16.5001C0.607616 15.0126 0.142673 13.4967 0.0288921 11.8935C-0.0259769 11.1213 -0.0150031 10.3527 0.164043 9.5939C0.359262 8.76742 0.749121 8.04505 1.34748 7.44529C2.34032 6.44993 3.3401 5.46036 4.34507 4.47714C4.91455 3.92018 5.5828 3.56738 6.40237 3.56738C7.26756 3.56738 7.9543 3.95951 8.54746 4.54944C9.49005 5.48638 10.4274 6.42853 11.3672 7.36894C11.8777 7.87964 12.3883 8.39091 12.8977 8.90275C12.9994 9.00512 13.0999 9.10981 13.1934 9.21912C14.2406 10.4406 14.2579 11.8755 13.1669 13.056C12.2589 14.0386 11.2851 14.9599 10.3373 15.905C9.97405 16.267 9.96192 16.3098 10.1675 16.7841C10.8924 18.4561 11.9667 19.8956 13.1386 21.271C14.9411 23.3866 16.9424 25.2831 19.2983 26.7729C19.9712 27.1986 20.6989 27.5369 21.4018 27.9146C21.6629 28.0552 21.8362 27.9048 22.0065 27.7324C22.922 26.8088 23.8369 25.8851 24.7564 24.9661C25.2225 24.5006 25.7642 24.1611 26.4255 24.0523C27.4253 23.8881 28.2374 24.2715 28.9304 24.954C29.9464 25.954 30.9519 26.9644 31.9604 27.9719C32.4236 28.4346 32.8839 28.9007 33.3448 29.3663C33.4326 29.4554 33.5198 29.5456 33.6036 29.6387C34.6703 30.8348 34.69 32.302 33.6284 33.5039C33.2276 33.9579 32.7719 34.3627 32.3468 34.7954C31.8408 35.3107 31.3314 35.8225 30.8393 36.3512C29.787 37.4818 28.5077 38.011 26.5936 37.9983V38.0001Z"
+                                    fill="white"
+                            />
+                            <path
+                                    d="M36.0657 18.9695C35.04 18.969 34.2579 18.2489 34.1436 17.1888C34.0044 15.8979 33.7289 14.6365 33.2281 13.4398C30.967 8.03737 26.9471 4.84482 21.1697 3.88475C21.0085 3.85814 20.8445 3.84715 20.6828 3.8246C19.6691 3.68348 18.9483 2.8009 19.0251 1.79687C19.1048 0.754083 19.9233 -0.0590912 20.9519 0.00337171C21.7634 0.0525323 22.5783 0.189025 23.3719 0.372365C30.6146 2.04961 36.1605 7.70597 37.6945 14.9661C37.8239 15.5775 37.9151 16.1992 37.9862 16.8203C38.1196 17.9927 37.2342 18.9695 36.0657 18.969V18.9695Z"
+                                    fill="white"
+                            />
+                            <path
+                                    d="M29.2834 18.9697C28.3252 18.9657 27.5721 18.3133 27.3873 17.315C27.1811 16.2011 26.7797 15.1653 26.1455 14.2283C24.8425 12.3047 23.0595 11.0872 20.7758 10.6257C19.7587 10.4198 19.1592 9.83567 19.0391 8.91955C18.8739 7.66161 19.9834 6.58355 21.2385 6.78135C26.0848 7.54594 30.1937 11.5239 31.1253 16.3769C31.1998 16.7638 31.2252 17.1918 31.1397 17.5707C30.9462 18.4261 30.1677 18.9732 29.2834 18.9691V18.9697Z"
+                                    fill="white"
+                            />
+                        </svg>
+
+                        <span> +37496981999</span>
+                    </a>
+                </div>
+                <ul class="footer__navigation">
+                    <li class="footer__navigation_item">
+                        <a class="footer__navigation_link" href="{% url 'terms_conditions' %}"
+                        >Terms & Condition</a
+                        >
+                    </li>
+                    <li class="footer__navigation_item">
+                        <a class="footer__navigation_link" href="{% url 'privacy_policy' %}"
+                        >Privacy Policy</a
+                        >
+                    </li>
+                    <li class="footer__navigation_item">
+                        <a class="footer__navigation_link" href="{% url 'refund_policy' %}"
+                        >Refund Policy</a
+                        >
+                    </li>
+                    <li class="footer__navigation_item">
+                        <a class="footer__navigation_link" href="{% url 'delivery_terms' %}"
+                        >Delivery Terms</a
+                        >
+                    </li>
+                    <li class="footer__navigation_item">
+                        <a class="footer__navigation_link" href="{% url 'payment' %}"
+                        >Payment</a
+                        >
+                    </li>
+                </ul>
+                <ul class="footer__menu">
+                    <h3 class="footer__menu_title">Menu</h3>
+                    <li class="footer__menu_item">
+                        <a class="footer__menu_link" href="">Pepperoni</a>
+                    </li>
+                    <li class="footer__menu_item">
+                        <a class="footer__menu_link" href=""
+                        >Four Cheeses</a
+                        >
+                    </li>
+                    <li class="footer__menu_item">
+                        <a class="footer__menu_link" href=""
+                        >Four Americano</a
+                        >
+                    </li>
+                    <li class="footer__menu_item">
+                        <a class="footer__menu_link" href="">Margherita</a>
+                    </li>
+                    <li class="footer__menu_item">
+                        <a class="footer__menu_link" href="">Cardinale</a>
+                    </li>
+                    <li class="footer__menu_item">
+                        <a class="footer__menu_link" href="">Kebab</a>
+                    </li>
+                    <li class="footer__menu_item">
+                        <a class="footer__menu_link" href="">Sicilian</a>
+                    </li>
+                    <li class="footer__menu_item">
+                        <a class="footer__menu_link" href="">Mafioso</a>
+                    </li>
+                    <li class="footer__menu_item">
+                        <a class="footer__menu_link" href="">Vegetarian</a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+        <div class="mobile-content">
+            <div class="mobile-banner">
+                <div class="mobile-header">
+                    <a href="/" class="mobile-header__logo">
+                        <img src="{{ home.logo.url }}" alt=""/>
+                    </a>
+                    <div class="mobile-header__menu">
+                        <div class="mobile-header__menu_lang">
+                            <div class="dropdown">
+                                <p class="dropdown__title">EN</p>
+                                <ul class="dropdown__content">
+                                    <li class="dropdown__item">
+                                        <a href="" class="dropdown__link"
+                                        >ARM</a
+                                        >
+                                    </li>
+                                    <li class="dropdown__item">
+                                        <a href="" class="dropdown__link"
+                                        >EN</a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mobile-header__burger">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <ul class="mobile-header__menu_items">
+                            <div class="mobile-header__menu_items-close">
+                                <span></span><span></span>
+                            </div>
+                            {% for product in products %}
+                                <li class="mobile-header__menu_item">
+                                    <a href="" class="mobile-header__menu_link"
+                                    >{{ product.name }}</a
+                                    >
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <section class="rules">
+                    <div class="rules__container">
+                        <h1 class="rules__title">Terms & Conditions</h1>
+                        <h2 class="rules__subtitle">Thank you for choosing to order from our pizza shop. Please
+                            carefully
+                            read
+                            our terms and conditions before using our website and placing an order.</h2>
+                        <p class="rules__desc">1. Ordering: You may place your order through our website, over the phone
+                            or in
+                            person. By placing
+                            an order, you agree to pay the total amount due for your order.
+
+
+                        </p>
+                        <p class="rules__desc">
+                            2. Delivery: We offer delivery within a certain radius of our shop. Delivery times may vary
+                            based
+                            on traffic and other factors outside of our control. We do not offer refunds for late
+                            deliveries.
+                        </p>
+                        <p class="rules__desc">3. Payment: We accept cash and all major credit cards. Payment is due
+                            upon
+                            delivery or pick-up.</p>
+                        <p class="rules__desc">4. Changes and Cancellations: If you need to make changes to your order,
+                            please
+                            contact us as soon
+                            as possible. We cannot guarantee that we will be able to accommodate all changes. If you
+                            need to
+                            cancel your order, please contact us at least 1 hour before the scheduled delivery or
+                            pick-up
+                            time. If you cancel your order after this time, you may be charged a cancellation fee.</p>
+                        <p class="rules__desc">5. Menu and Prices: Our menu and prices are subject to change without
+                            notice. We
+                            strive to keep our
+                            website up to date with the latest menu and prices.</p>
+                        <p class="rules__desc">6. Food Allergies: Please inform us of any food allergies before placing
+                            your
+                            order. We cannot
+                            guarantee that our food is free from allergens.</p>
+                        <p class="rules__desc">7. Refunds and Returns: We do not offer refunds or returns for food that
+                            has
+                            been delivered or
+                            picked up.</p>
+                        <p class="rules__desc">8. Privacy Policy: We take your privacy seriously. Please review our
+                            privacy
+                            policy for information
+                            on how we collect and use your personal information.</p>
+                        <p class="rules__desc">9. Governing Law: These terms and conditions shall be governed by and
+                            construed
+                            in accordance with
+                            the laws of the state in which our shop is located.</p>
+                        <p class="rules__desc rules__desc_gap">10. By using our website and placing an order, you agree
+                            to be bound by these
+                            terms and conditions.
+                            If you do not agree to these terms and conditions, please do not use our website or place an
+                            order.</p>
+                    </div>
+                </section>
+                <footer>
+                    <div class="footer__info">
+                        <img
+                                class="footer__info_img"
+                                src="{{ home.logo.url }}"
+                                alt=""
+                        />
+                        <a class="footer__info_phone" href="tel:+37496981999">
+                            <svg
+                                    width="38"
+                                    height="38"
+                                    viewBox="0 0 38 38"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                        d="M26.5936 38.0001C24.7696 37.9601 22.8475 37.4367 20.9941 36.6409C15.7584 34.3922 11.2984 31.0753 7.55924 26.7822C4.87701 23.703 2.6603 20.33 1.1823 16.5001C0.607616 15.0126 0.142673 13.4967 0.0288921 11.8935C-0.0259769 11.1213 -0.0150031 10.3527 0.164043 9.5939C0.359262 8.76742 0.749121 8.04505 1.34748 7.44529C2.34032 6.44993 3.3401 5.46036 4.34507 4.47714C4.91455 3.92018 5.5828 3.56738 6.40237 3.56738C7.26756 3.56738 7.9543 3.95951 8.54746 4.54944C9.49005 5.48638 10.4274 6.42853 11.3672 7.36894C11.8777 7.87964 12.3883 8.39091 12.8977 8.90275C12.9994 9.00512 13.0999 9.10981 13.1934 9.21912C14.2406 10.4406 14.2579 11.8755 13.1669 13.056C12.2589 14.0386 11.2851 14.9599 10.3373 15.905C9.97405 16.267 9.96192 16.3098 10.1675 16.7841C10.8924 18.4561 11.9667 19.8956 13.1386 21.271C14.9411 23.3866 16.9424 25.2831 19.2983 26.7729C19.9712 27.1986 20.6989 27.5369 21.4018 27.9146C21.6629 28.0552 21.8362 27.9048 22.0065 27.7324C22.922 26.8088 23.8369 25.8851 24.7564 24.9661C25.2225 24.5006 25.7642 24.1611 26.4255 24.0523C27.4253 23.8881 28.2374 24.2715 28.9304 24.954C29.9464 25.954 30.9519 26.9644 31.9604 27.9719C32.4236 28.4346 32.8839 28.9007 33.3448 29.3663C33.4326 29.4554 33.5198 29.5456 33.6036 29.6387C34.6703 30.8348 34.69 32.302 33.6284 33.5039C33.2276 33.9579 32.7719 34.3627 32.3468 34.7954C31.8408 35.3107 31.3314 35.8225 30.8393 36.3512C29.787 37.4818 28.5077 38.011 26.5936 37.9983V38.0001Z"
+                                        fill="white"
+                                />
+                                <path
+                                        d="M36.0657 18.9695C35.04 18.969 34.2579 18.2489 34.1436 17.1888C34.0044 15.8979 33.7289 14.6365 33.2281 13.4398C30.967 8.03737 26.9471 4.84482 21.1697 3.88475C21.0085 3.85814 20.8445 3.84715 20.6828 3.8246C19.6691 3.68348 18.9483 2.8009 19.0251 1.79687C19.1048 0.754083 19.9233 -0.0590912 20.9519 0.00337171C21.7634 0.0525323 22.5783 0.189025 23.3719 0.372365C30.6146 2.04961 36.1605 7.70597 37.6945 14.9661C37.8239 15.5775 37.9151 16.1992 37.9862 16.8203C38.1196 17.9927 37.2342 18.9695 36.0657 18.969V18.9695Z"
+                                        fill="white"
+                                />
+                                <path
+                                        d="M29.2834 18.9697C28.3252 18.9657 27.5721 18.3133 27.3873 17.315C27.1811 16.2011 26.7797 15.1653 26.1455 14.2283C24.8425 12.3047 23.0595 11.0872 20.7758 10.6257C19.7587 10.4198 19.1592 9.83567 19.0391 8.91955C18.8739 7.66161 19.9834 6.58355 21.2385 6.78135C26.0848 7.54594 30.1937 11.5239 31.1253 16.3769C31.1998 16.7638 31.2252 17.1918 31.1397 17.5707C30.9462 18.4261 30.1677 18.9732 29.2834 18.9691V18.9697Z"
+                                        fill="white"
+                                />
+                            </svg>
+
+                            <span> +37496981999</span>
+                        </a>
+                    </div>
+                    <ul class="footer__navigation">
+                        <li class="footer__navigation_item">
+                            <a class="footer__navigation_link" href="{% url 'terms_conditions' %}"
+                            >Terms & Condition</a
+                            >
+                        </li>
+                        <li class="footer__navigation_item">
+                            <a class="footer__navigation_link" href="{% url 'privacy_policy' %}"
+                            >Privacy Policy</a
+                            >
+                        </li>
+                        <li class="footer__navigation_item">
+                            <a class="footer__navigation_link" href="{% url 'refund_policy' %}"
+                            >Refund Policy</a
+                            >
+                        </li>
+                        <li class="footer__navigation_item">
+                            <a class="footer__navigation_link" href="{% url 'delivery_terms' %}"
+                            >Delivery Terms</a
+                            >
+                        </li>
+                        <li class="footer__navigation_item">
+                            <a class="footer__navigation_link" href="{% url 'payment' %}"
+                            >Payment</a
+                            >
+                        </li>
+                    </ul>
+                    <ul class="footer__menu">
+                        <h3 class="footer__menu_title">Menu</h3>
+                        <li class="footer__menu_item">
+                            <a class="footer__menu_link" href="">Pepperoni</a>
+                        </li>
+                        <li class="footer__menu_item">
+                            <a class="footer__menu_link" href=""
+                            >Four Cheeses</a
+                            >
+                        </li>
+                        <li class="footer__menu_item">
+                            <a class="footer__menu_link" href=""
+                            >Four Americano</a
+                            >
+                        </li>
+                        <li class="footer__menu_item">
+                            <a class="footer__menu_link" href="">Margherita</a>
+                        </li>
+                        <li class="footer__menu_item">
+                            <a class="footer__menu_link" href="">Cardinale</a>
+                        </li>
+                        <li class="footer__menu_item">
+                            <a class="footer__menu_link" href="">Kebab</a>
+                        </li>
+                        <li class="footer__menu_item">
+                            <a class="footer__menu_link" href="">Sicilian</a>
+                        </li>
+                        <li class="footer__menu_item">
+                            <a class="footer__menu_link" href="">Mafioso</a>
+                        </li>
+                        <li class="footer__menu_item">
+                            <a class="footer__menu_link" href="">Vegetarian</a>
+                        </li>
+                    </ul>
+                </footer>
+            </div>
+        </div>
+    </div>
+{% endblock %}
