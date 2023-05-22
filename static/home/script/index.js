@@ -55,27 +55,31 @@ function hideCart() {
 }
 
 
-function customRadioButtons(buttonsClass) {
-    const buttons = document.querySelectorAll(buttonsClass);
-    buttons.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-            const priceButtons = document.querySelectorAll(`.${e.target.dataset.button}`)
-            console.log(e.target.dataset.button)
-            priceButtons.forEach(b => b.classList.remove('product__price-active'))
-            const priceButton = document.querySelector(`.product__price-${e.target.id}`)
+function customRadioButtons(productClass) {
 
-            if (priceButton) priceButton.classList.add('product__price-active');
+    const products = document.querySelectorAll(productClass);
+    products.forEach(product => {
+        const buttons = product.querySelectorAll('.product__sizes label')
+        buttons.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                const priceButtons = product.querySelectorAll(`.${e.target.dataset.button}`)
+                priceButtons.forEach(b => b.classList.remove('product__price-active'))
+                const priceButton = product.querySelector(`.product__price-${e.target.id}`)
+                if (priceButton) priceButton.classList.add('product__price-active');
 
-            buttons.forEach((btn) =>
-                btn.classList.remove('product__size_active')
-            );
+                buttons.forEach((btn) =>
+                    btn.classList.remove('product__size_active')
+                );
+                console.log(buttons)
 
-            btn.classList.add('product__size_active');
+                btn.classList.add('product__size_active');
+            });
         });
-    });
+    })
+
 }
 
-customRadioButtons('.product__size');
+customRadioButtons('.mobile__product');
 
 function countInputs(selector) {
     const selectors = document.querySelectorAll(selector);
@@ -139,7 +143,7 @@ function openMobileMenu() {
     burger.addEventListener('click', () => {
         const menu = document.querySelector('.mobile-header__menu_items');
         const close = menu.querySelector('.mobile-header__menu_items-close');
-        burger.computedStyleMap.display = 'none'
+        burger.style.display = 'none'
         menu.classList.add('mobile-header__menu_items-active');
         close.addEventListener('click', () => {
             menu.classList.remove('mobile-header__menu_items-active');
@@ -167,7 +171,7 @@ function mobileProductDropdown() {
 mobileProductDropdown()
 
 
-const API_URL = 'http://grtak.am';
+const API_URL = 'https://grtak.am';
 
 async function getCartItems(url) {
     const data = await fetch(url);

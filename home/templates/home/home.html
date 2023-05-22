@@ -37,9 +37,9 @@
                     <header>
                         <div class="big__container">
                             <div class="header__container">
-                                <div class="logo">
+                                <a href="/" class="logo">
                                     <img src="/media/svg/logo.svg" alt="logo"/>
-                                </div>
+                                </a>
                                 <nav class="header__menu">
                                     <ul class="header__menu_items">
                                         <li class="header__menu_item">
@@ -79,24 +79,11 @@
                                                 <ul
                                                         class="dropdown__content"
                                                 >
-                                                    <li
-                                                            class="dropdown__item"
-                                                    >
-                                                        <a
-                                                                href=""
-                                                                class="dropdown__link"
-                                                        >Pepperoni</a
-                                                        >
-                                                    </li>
-                                                    <li
-                                                            class="dropdown__item"
-                                                    >
-                                                        <a
-                                                                href=""
-                                                                class="dropdown__link"
-                                                        >Four Cheeses</a
-                                                        >
-                                                    </li>
+                                                    {% for product in products %}
+                                                        <li class="dropdown__item">
+                                                            <a href="#product-{{ product.id }}" class="dropdown__link">Pepperoni</a>
+                                                        </li>
+                                                    {% endfor %}
                                                 </ul>
                                             </div>
                                         </li>
@@ -126,7 +113,7 @@
                     </div>
                 </section>
                 {% for product in products %}
-                    <section class="swiper-slide slider__slide">
+                    <section class="swiper-slide slider__slide" id="#product-{{ product.id }}">
                         <div class="product {% if forloop.counter|divisibleby:"2" %}product_reverse{% endif %}">
                             <div class="product__item product__image {% if forloop.counter|divisibleby:"2" %}product__item_reverse{% endif %}">
                                 <img
@@ -268,17 +255,27 @@
                         </div>
                         <ul class="footer__navigation">
                             <li class="footer__navigation_item">
-                                <a class="footer__navigation_link" href=""
+                                <a class="footer__navigation_link" href="{% url 'terms_conditions' %}"
                                 >Terms & Condition</a
                                 >
                             </li>
                             <li class="footer__navigation_item">
-                                <a class="footer__navigation_link" href=""
-                                >Shipping</a
+                                <a class="footer__navigation_link" href="{% url 'privacy_policy' %}"
+                                >Privacy Policy</a
                                 >
                             </li>
                             <li class="footer__navigation_item">
-                                <a class="footer__navigation_link" href=""
+                                <a class="footer__navigation_link" href="{% url 'refund_policy' %}"
+                                >Refund Policy</a
+                                >
+                            </li>
+                            <li class="footer__navigation_item">
+                                <a class="footer__navigation_link" href="{% url 'delivery_terms' %}"
+                                >Delivery Terms</a
+                                >
+                            </li>
+                            <li class="footer__navigation_item">
+                                <a class="footer__navigation_link" href="{% url 'payment' %}"
                                 >Payment</a
                                 >
                             </li>
@@ -324,9 +321,9 @@
         <div class="mobile-content">
             <div class="mobile-banner">
                 <div class="mobile-header">
-                    <div class="mobile-header__logo">
+                    <a href="/" class="mobile-header__logo">
                         <img src="{{ home.logo.url }}" alt=""/>
-                    </div>
+                    </a>
                     <div class="mobile-header__menu">
                         <div class="mobile-header__menu_lang">
                             <div class="dropdown">
@@ -524,17 +521,27 @@
                 </div>
                 <ul class="footer__navigation">
                     <li class="footer__navigation_item">
-                        <a class="footer__navigation_link" href=""
+                        <a class="footer__navigation_link" href="{% url 'terms_conditions' %}"
                         >Terms & Condition</a
                         >
                     </li>
                     <li class="footer__navigation_item">
-                        <a class="footer__navigation_link" href=""
-                        >Shipping</a
+                        <a class="footer__navigation_link" href="{% url 'privacy_policy' %}"
+                        >Privacy Policy</a
                         >
                     </li>
                     <li class="footer__navigation_item">
-                        <a class="footer__navigation_link" href=""
+                        <a class="footer__navigation_link" href="{% url 'refund_policy' %}"
+                        >Refund Policy</a
+                        >
+                    </li>
+                    <li class="footer__navigation_item">
+                        <a class="footer__navigation_link" href="{% url 'delivery_terms' %}"
+                        >Delivery Terms</a
+                        >
+                    </li>
+                    <li class="footer__navigation_item">
+                        <a class="footer__navigation_link" href="{% url 'payment' %}"
                         >Payment</a
                         >
                     </li>
@@ -575,6 +582,5 @@
                 </ul>
             </footer>
         </div>
-
     </div>
 {% endblock %}

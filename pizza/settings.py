@@ -30,17 +30,16 @@ env = environ.Env(
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+DEBUG = False
 if DEBUG:
     ALLOWED_HOSTS = [
         '*'
     ]
 else:
-
     ALLOWED_HOSTS = [
-        '209.38.204.91',
+        '*'
+        '209.38.233.122',
         'grtak.am',
-        'http://grtak.am',
         'https://grtak.am'
     ]
 
@@ -99,7 +98,7 @@ WSGI_APPLICATION = 'pizza.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default=env('DATABASES_URL'))
+    'default': dj_database_url.config(default=env('DATABASE_URL'))
 }
 
 # Password validation
@@ -151,4 +150,7 @@ else:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://*','http://*']
+CSRF_TRUSTED_ORIGINS = [
+        'https://*',
+        'http://*',
+        'https://grtak.am']
