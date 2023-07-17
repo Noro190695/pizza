@@ -33,7 +33,7 @@ class Cart(object):
         """
         return sum(item['quantity'] for item in self.cart.values())
 
-    def add(self, product, quantity=1, price=5000,  size=33,update_quantity=False):
+    def add(self, product, quantity=1, notes='', price=5000,  size=33,update_quantity=False):
         product_id = f'{str(product.id)}-{str(size)}'
         if product_id not in self.cart:
             self.cart[product_id] = {
@@ -46,6 +46,7 @@ class Cart(object):
                     'component': [{'name': c.name, 'icon': c.icon.url} for c in product.component.all()],
                     'size': size
                 },
+                'notes': notes,
                 'size': size,
                 'quantity': 0,
                 'price': price

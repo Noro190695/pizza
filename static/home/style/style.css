@@ -259,6 +259,7 @@ header {
 }
 
 .cart__checkout {
+    text-decoration: none;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -681,7 +682,7 @@ input[type='number'] {
     padding: 30px;
     background: rgba(252, 252, 252, 0.863);
     z-index: 16;
-    gap: 30px;
+    gap: 5px;
     top: 59px;
     right: 50%;
     transform: translateX(50%);
@@ -693,6 +694,7 @@ input[type='number'] {
 }
 
 .dropdown__link {
+    display: block;
     font-family: var(--main-font);
     font-style: normal;
     font-weight: 400;
@@ -702,6 +704,7 @@ input[type='number'] {
     color: #000;
     text-decoration: none;
     white-space: nowrap;
+    padding: 10px 0;
 }
 
 /* ->->->->->->->->-> DROPDOWN  style end */
@@ -861,7 +864,8 @@ footer {
 
     gap: 10px;
 }
-.rules__item:before{
+
+.rules__item:before {
     content: '';
     display: block;
     min-width: 5px;
@@ -870,4 +874,169 @@ footer {
     border-radius: 50%;
     margin-bottom: 0;
     margin-top: 10px;
+}
+
+.payment {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.payment .logo {
+    display: block;
+    position: fixed;
+    left: 60px;
+    top: 20px;
+}
+
+.payment__container {
+    max-width: 1440px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 60px;
+
+}
+
+.payment__content {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.payment__content_right {
+    min-width: 432px;
+    min-height: 100vh;
+    background: #F7F7F7;
+    padding: 120px 20px;
+}
+
+.payment__content_left-title {
+    font-family: var(--main-font);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 42px;
+    letter-spacing: 0.64px;
+    margin-bottom: 50px;
+}
+
+.payment__content_left-subtitle {
+    font-family: var(--main-font);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 31px;
+    letter-spacing: 0.48px;
+    border-bottom: 1px solid #000;
+    display: block;
+    width: 70%;
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+}
+
+.payment__content_form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 32px;
+}
+
+.payment__content_input {
+    width: calc(50% - 32px);
+    position: relative;
+}
+
+.payment__content_input input {
+    width: 100%;
+    font-size: 20px;
+    font-family: var(--secondary-font);
+    line-height: 30px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #9A9A9A;
+}
+
+.required__field:before {
+    content: '*';
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+    color: red;
+}
+
+.payment__content_button {
+    width: 316px;
+    padding: 15px 40px;
+    font-size: 20px;
+    font-family: var(--main-font);
+    line-height: 24px;
+    letter-spacing: 1px;
+    background: var(--color1);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.payment__content_products {
+    width: 100%;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 5px 5px 5px #cccccc;
+}
+
+.payment__content_products-items {
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.payment__content_products-item {
+    font-size: 20px;
+    font-family: var(--secondary-font);
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+
+.payment__content_shipping {
+    padding: 30px 20px;
+    border-top: 1px solid #E1E1E1;
+    border-bottom: 1px solid #E1E1E1;
+
+}
+
+.payment__content_shipping p {
+    font-size: 20px;
+    font-family: var(--secondary-font);
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+
+}
+
+.payment__content_products .line {
+    display: block;
+    flex: 1 1 auto;
+    height: 1px;
+    border: 1px dashed #000;
+}
+
+.payment__content_price {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 24px;
+    font-family: var(--main-font);
+    font-weight: 700;
+    line-height: 31px;
+    letter-spacing: 0.48px;
 }

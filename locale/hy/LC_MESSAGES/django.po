@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-09 23:38+0400\n"
+"PO-Revision-Date: 2023-07-09 18:29+0000\n"
+"Last-Translator:   <>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Translated-Using: django-rosetta 0.9.9\n"
+
+#: home/models.py:9
+#, fuzzy
+#| msgid "title"
+msgid "Title"
+msgstr "իտալական պիցցա"
+
+#: home/models.py:10
+#, fuzzy
+#| msgid "subtitle"
+msgid "Subtitle"
+msgstr "Պատրաստված է բացառապես իտալական բաղադրատոմսերով"
+
+#: home/models.py:11
+msgid "Description"
+msgstr ""
+
+#: home/models.py:12
+#, fuzzy
+#| msgid "delivery_text"
+msgid "Delivery Text"
+msgstr "dsdadasdas"
+
+#: home/models.py:29
+msgid "Name"
+msgstr ""
+
+#: home/models.py:41
+msgid "size"
+msgstr ""
+
+#: home/models.py:58
+msgid "img"
+msgstr ""
+
+#: home/models.py:62
+msgid "name"
+msgstr "dasdsd`1213213"
+
+#: pizza/settings.py:139
+msgid "English"
+msgstr "English"
+
+#: pizza/settings.py:140
+msgid "Armenian"
+msgstr "Հայերեն"

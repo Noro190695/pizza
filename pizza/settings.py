@@ -14,6 +14,7 @@ from pathlib import Path
 import environ
 import os
 import dj_database_url
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +31,7 @@ env = environ.Env(
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 if DEBUG:
     ALLOWED_HOSTS = [
         '*'
@@ -50,12 +51,15 @@ CART_SESSION_ID = 'cart'
 INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'cart.apps.CartConfig',
+    'mail.apps.MailConfig',
+    'payment.apps.PaymentConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'parler'
 ]
 
 MIDDLEWARE = [
@@ -66,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'pizza.urls'
@@ -130,6 +135,24 @@ USE_I18N = True
 
 USE_TZ = True
 
+LANGUAGES = (
+    ('en', _('English')),
+    ('hy', _('Armenian')),
+)
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale/',
+]
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en', },
+        {'code': 'hy', },
+    ),
+    'default': {
+        'fallback': 'en',  # defaults to PARLER_DEFAULT_LANGUAGE_CODE
+        'hide_untranslated': False,  # the default; let .active_translations() return fallbacks too.
+    }
+}
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
@@ -151,6 +174,15 @@ else:
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [
-        'https://*',
-        'http://*',
-        'https://grtak.am']
+    'https://*',
+    'http://*',
+    'https://grtak.am']
+
+DEFAULT_FROM_EMAIL = 'koxlikyan1995@gmail.com'
+SERVER_EMAIL = 'arsenmatevosyan1997@gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'

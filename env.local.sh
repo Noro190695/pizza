@@ -17,3 +17,5 @@ export DB_HOST="0.0.0.0"
 echo $DB_HOST
 export DNS_HOST_NAME="0.0.0.0"
 echo $DNS_HOST_NAME
+
+export SENDGRID_API_KEY='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'

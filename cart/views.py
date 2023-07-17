@@ -1,6 +1,8 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST, require_GET
+from parler.utils.i18n import get_active_language_choices
+
 from home.models import Product, ProductSize, Size
 import json
 from cart.cart import Cart
@@ -20,8 +22,8 @@ def get(request):
 def add(request, product_id):
     try:
         cart = Cart(request)
-        product = Product.objects.get(pk=product_id)
         data = json.loads(request.body.decode('utf-8'))
+        product = Product.objects.language(data.get('lang')).get(pk=product_id)
         try:
             size = Size.objects.get(size=data.get('size'))
         except Size.DoesNotExist as e:
@@ -34,6 +36,7 @@ def add(request, product_id):
         cart.add(
             product=product,
             quantity=data.get('quantity'),
+            notes=data.get('notes'),
             size=size.size,
             price=product_size[0].price,
             update_quantity=data.get('update')

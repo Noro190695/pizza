@@ -79,7 +79,7 @@ function customRadioButtons(productClass) {
 
 }
 
-customRadioButtons('.mobile__product');
+customRadioButtons('.product');
 
 function countInputs(selector) {
     const selectors = document.querySelectorAll(selector);
@@ -139,7 +139,7 @@ dropDown('.dropdown');
 
 function openMobileMenu() {
     const burger = document.querySelector('.mobile-header__burger');
-
+    if (!burger) return;
     burger.addEventListener('click', () => {
         const menu = document.querySelector('.mobile-header__menu_items');
         const close = menu.querySelector('.mobile-header__menu_items-close');
@@ -171,7 +171,9 @@ function mobileProductDropdown() {
 mobileProductDropdown()
 
 
-const API_URL = 'https://grtak.am';
+// const API_URL = 'https://grtak.am';
+
+const API_URL = 'http://127.0.0.1:8000';
 
 async function getCartItems(url) {
     const data = await fetch(url);
@@ -188,10 +190,12 @@ async function cleanCart() {
 
 getCartItems(`${API_URL}/cart`)
     .then(data => {
+        renderProductInCheckoutPage(data)
         cartRender(data)
     })
 
 function cartRender(data) {
+    if (!cart) return;
     const productContainer = cart.querySelector('.cart__content_products')
     const totalPrice = cart.querySelector('.cart__sum')
     const cartFooter = cart.querySelector('.cart__content_footer')
@@ -244,6 +248,24 @@ function cartRender(data) {
     totalPrice.textContent = `${data.total_price} AMD`
 }
 
+function renderProductInCheckoutPage(data) {
+    const productContainer = document.querySelector('.payment__content_products-items');
+    if (!productContainer) return;
+    const totalPrice = document.querySelector('.payment__content_price')
+    Object.values(data.cart).map(item => {
+        const html = `
+                <li class="payment__content_products-item">
+                   <span>${item.product.name} (${item.quantity})</span>
+                   <span class="line"></span>
+                   <span>${item.price} AMD</span>
+               </li>
+        `;
+        productContainer.innerHTML += html
+    })
+    totalPrice.innerHTML = +data.total_price + 600;
+}
+
+
 function removeItemFromCart(productId, productSize) {
     fetch(`${API_URL}/cart/remove/${productId}/${productSize}/`)
         .then(j => j.json())
@@ -290,18 +312,22 @@ function addToCartEvent() {
     const buttons = document.querySelectorAll('.product__price');
     buttons.forEach(b => {
         const counter = b.parentElement.parentElement.querySelector('.product__count input')
+        const notes = b.parentElement.parentElement.querySelector('.product__notes textarea')
         b.addEventListener('click', (e) => {
             const data = {
                 quantity: +counter.value,
+                notes: notes.value,
                 update: false,
                 size: e.target.dataset.size
             }
             addToCart(data, e.target.dataset.id)
+            notes.value = ''
         })
     })
 }
 
 function addToCart(data, productId) {
+    data.lang = window.location.pathname.match(/^\/[a-zA-Z]{2}\//)[0].split('/')[1];
     fetch(`${API_URL}/cart/add/${productId}/`, {
         method: 'POST',
         headers: {
@@ -322,3 +348,51 @@ function addToCart(data, productId) {
 
 addToCartEvent()
 
+function checkout() {
+    const form = document.querySelector('.payment__content_form');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const fetchData = {}
+        const data = [...(new FormData(form))];
+        for ([key, val] of data) {
+            console.log(key, val)
+            fetchData[key] = val
+        }
+        fetch(`${API_URL}/payment/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(fetchData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status) {
+                    console.log(data.url)
+                    // window.location.href = data.url
+                }
+            }).catch(e => {
+            console.log(e)
+        })
+        console.log(fetchData)
+    })
+
+}
+
+// checkout()
+
+function sendMail() {
+    fetch(`${API_URL}/mail/`, {
+        method: 'POST',
+        body: JSON.stringify({data: true})
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        }).catch(err => {
+        console.log(err)
+    })
+}
+
+sendMail()

@@ -20,3 +20,5 @@ export DNS_HOST_NAME="grtak.am"
 echo $DNS_HOST_NAME
 export export DOCKER_HOST=ssh://root@209.38.233.122
 echo $DOCKER_HOST
+
+export SENDGRID_API_KEY='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'

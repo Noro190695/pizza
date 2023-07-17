@@ -10,8 +10,8 @@ services:
     depends_on:
       - pizza
     volumes:
-      - ./static:/static
-      - ./media:/media
+      - /app/static:/static
+      - /app/media:/media
     environment:
       DNS_HOST_NAME: "${DNS_HOST_NAME}"
   pizza:
@@ -27,9 +27,10 @@ services:
       DB_HOST: "${DB_HOST}"
       DNS_HOST_NAME: "${DNS_HOST_NAME}"
       DATABASE_URL: "${DATABASE_URL}"
+      SENDGRID_API_KEY: "${SENDGRID_API_KEY}"
     volumes:
-      - ./static:/static
-      - ./media:/media
+      - static:/static
+      - media:/media
     ports:
       - "8000:80"
     depends_on:
